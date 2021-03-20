@@ -11,19 +11,19 @@ namespace ProEventos.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventoController : ControllerBase
+    public class EventosController : ControllerBase
     {
         private readonly DataContext context;
-        public EventoController(DataContext context)
+        public EventosController(DataContext context)
         {
             this.context = context;
         }
 
 
         [HttpGet]
-        public Evento Get()
+        public List<Evento> Get()
         {
-            return context.Eventos.FirstOrDefault(x=>x.EventoId == 1);
+            return context.Eventos.ToList();
         }
 
         [HttpPost]
